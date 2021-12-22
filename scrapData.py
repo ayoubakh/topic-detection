@@ -1,3 +1,4 @@
+from datetime import datetime
 import snscrape.modules.twitter as sntwitter
 import pandas as pd
 import streamlit as st
@@ -46,5 +47,11 @@ def scrapData() :
 
         # Download csv file
         csv = df.to_csv(index=False).encode('utf-8')
-        st.download_button("Download csv", csv, "tweets.csv", "text/csv",key='download-csv')
+
+        dt = str(datetime.today()).replace('-', '.')
+        dt = dt.replace(":", ".")
+        dt = dt.replace(" ", "_")
+        filename = f'{dt}_{"_".join(list_search)}.csv'
+        
+        st.download_button("Download csv", csv, f"{filename}", "text/csv",key='download-csv')
     
