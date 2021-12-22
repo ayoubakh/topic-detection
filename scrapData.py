@@ -30,7 +30,7 @@ def scrapData() :
             since = st.date_input('Start date', key='input-since')
            
         with col2:
-            limit = st.number_input('Number of tweets', min_value=1, max_value=500, value=50)
+            limit = st.number_input('Number of tweets', min_value=1, max_value=10000, value=50)
             until = st.date_input('End date', key='input-until')
             
 
@@ -45,6 +45,6 @@ def scrapData() :
         st.success(f'{df.shape[0]} tweets successfully loaded')
 
         # Download csv file
-        csv = df.to_csv().encode('utf-8')
+        csv = df.to_csv(index=False).encode('utf-8')
         st.download_button("Download csv", csv, "tweets.csv", "text/csv",key='download-csv')
     
