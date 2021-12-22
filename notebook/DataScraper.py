@@ -3,10 +3,13 @@ Data Scrapping using snscrap
 
 """
 
+import enum
+from pandas._config.config import options
 import snscrape.modules.twitter as sntwitter
 import pandas as pd
 from datetime import datetime
 import os
+import streamlit as st
 
 class DataScraper:
 
@@ -58,7 +61,8 @@ class DataScraper:
             tweets_list1.append([tweet.date, tweet.id, tweet.content, tweet.user.username, tweet.lang]) 
 
         # Creating a dataframe from the tweets list above 
-        return pd.DataFrame(tweets_list1, columns=['Datetime', 'Tweet Id', 'Text', 'Username', 'lang'])
+        # return pd.DataFrame(tweets_list1, columns=['Datetime', 'Tweet Id', 'Text', 'Username', 'lang'])
+        #twwets_df = pd.DataFrame(tweets_list1, columns=['Datetime', 'Tweet Id', 'Text', 'Username', 'lang'])
     
     def write(self, df):
         file = f'{self.destdir}/{self.filename}'
@@ -75,3 +79,41 @@ class DataScraper:
             tweets = self.scrap(channel, self.start_date, self.end_date)
             self.write(tweets)
         pass
+
+
+
+def scrapFromTwitter(options_ticker):
+    list21=  options_ticker
+    tweets_list1 = []
+    for n, k in enumerate(list21):
+        for i, tweet in enumerate(sntwitter.TwitterSearchScraper(f'from:{k}').get_items()):
+            print(str(i)+ " | "+k+" | "+ str(tweet.date))
+            tweets_list1.append([k, tweet.date, tweet.id, tweet.content, tweet.user.username, tweet.lang]) 
+            tweets_df = pd.DataFrame(tweets_list1, columns=['Search','Datetime', 'Tweet Id', 'Text', 'Username', 'lang'])
+    
+    print('list of tweets created')
+    return tweets_df
+    
+
+
+def scrapData() :
+    op = st.checkbox('add more channels for search')
+    list_search = ['CNN', 'FoxNews', 'BBCWorld']
+    options_ticker = list()
+    if not op:
+        with st.form('Scrapinf section'):
+            col1, col2, col3 = st.columns((2, 2, 2))
+            with col1:
+                options_ticker = st.multiselect(label='Select channel', options=list_search, default="CNN")
+                submitted = st.form_submit_button('Scrap')
+
+        if submitted:
+            st.spinner("Loading Data in progress ... ")
+            df = scrapFromTwitter(options_ticker)
+            st.success(f'{df.shape[0]} tweets successfully loaded')
+            # downloadData(df)
+    else:
+        pass
+
+
+

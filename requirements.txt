@@ -10,3 +10,20 @@
 
 #hydralit_components==1.0.6
 #plotly==5.4.0
+
+# streamlit run main.py
+
+
+## Data Scrapping
+#channels = ['CNN', 'FoxNews', 'BBCWorld']
+#start_date = '2021-12-13'
+#end_date = '2021-12-14'
+#count = 500
+#dataframe = pd.read_csv('data/2021.12.18 19.31.55.179245_CNN_FoxNews_BBCWorld.csv')
+#ds = DataScraper(channels, start_date, end_date, count)
+#ds.start()
+
+## Data preprocessing
+# data = ""
+# datapreprocessor = DataPreProcessor(data)
+# clean_data = datapreprocessor.start()
