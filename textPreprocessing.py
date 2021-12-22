@@ -1,3 +1,4 @@
+from os import name
 import streamlit as st
 import pandas as pd
 import re
@@ -90,8 +91,9 @@ def textPreprocessing():
                 st.dataframe(df)
 
         # Download csv file
-        csv = df.to_csv().encode('utf-8')
-        st.download_button("Download the clean data", csv, "clean_data.csv", "text/csv",key='download-csv')
+        csv = df.to_csv(index=False).encode('utf-8')
+        filename = dataset.name.replace('.csv', '_clean.csv')
+        st.download_button("Download the clean data", csv,filename, "text/csv",key='download-csv')
 
         # Word cloud 
         generate_word_cloud(df)
