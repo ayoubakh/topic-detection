@@ -37,7 +37,7 @@ def textPreprocessing():
 
                 # remove hyperlinks (http)
                 st.subheader('Remove hyperlinks')
-                df['clean_tweet'] = df["Text"].apply(lambda x: re.sub(r"http\S+", " ", x))
+                df['clean_tweet'] = df["clean_tweet"].apply(lambda x: re.sub(r"http\S+", " ", x))
                 st.table(df[['Text', 'clean_tweet']].head(2))
 
                 # remove hashtags (#)
