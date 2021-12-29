@@ -25,8 +25,8 @@ elif menu_id == 'Text Preprocessing':
 elif menu_id == 'Topic Detection':
     topicDetection()
 
-elif menu_id == 'Topic Tracking':
-    topicTracking()
+# elif menu_id == 'Topic Tracking':
+#    topicTracking()
 
 
  
