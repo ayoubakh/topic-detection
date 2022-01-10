@@ -20,15 +20,16 @@ def get_wordnet_pos(word):
 
 def textPreprocessing():
     # Upload dataset
-    dataset = st.file_uploader("Upload your dataset", type = ['csv'])
+    st.subheader('Upload Dataset')
+    dataset = st.file_uploader("", type = ['csv'])
     if dataset is not None:
         df = pd.read_csv(dataset)
         st.write(df)
 
         # Text Preprocessing
-        st.header('Text Preprocessing')
+        st.subheader('Text Preprocessing')
         with st.spinner('Wait! text preporocessing in progress'):
-            with st.expander('Expand for deails'):
+            with st.expander('Expand for details'):
                 # remove duplicate rows
                 st.subheader('Remove duplicate rows and lowercase text')
                 df = df.drop_duplicates()
@@ -90,20 +91,21 @@ def textPreprocessing():
 
                 st.dataframe(df)
 
+        # Word cloud 
+        with st.expander('Word Cloud'):
+            generate_word_cloud(df)
+
         # Download csv file
         csv = df.to_csv(index=False).encode('utf-8')
-        filename = dataset.name.replace('.csv', '_clean.csv')
+        filename = dataset.name.replace('.csv', '_clean.csv')        
         st.download_button("Download the clean data", csv,filename, "text/csv",key='download-csv')
-
-        # Word cloud 
-        generate_word_cloud(df)
 
 
 def generate_word_cloud(df):
     st.header('Word Cloud')
     long_string = ','.join(list(df['clean_tweet'].values))
     # Create a WordCloud object
-    wordcloud = WordCloud(background_color="white", max_words=5000, contour_width=3, contour_color='steelblue')
+    wordcloud = WordCloud(height=450, width=750, background_color="white", max_words=1000, contour_width=3, contour_color='steelblue')
     # Generate a word cloud
     wordcloud.generate(long_string)
     # Visualize the word cloud
