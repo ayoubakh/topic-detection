@@ -54,4 +54,3 @@ def scrapData() :
         filename = f'{dt}_{"_".join(list_search)}.csv'
         
         st.download_button("Download csv", csv, filename, "text/csv",key='download-csv')
-    
