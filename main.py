@@ -5,11 +5,11 @@ from navbar import navbar
 from home import home
 from scrapData import scrapData
 from textPreprocessing import textPreprocessing
-from topicDetection import topicDetection
+from TopicDetection.topicDetection import topicDetection
 from topicTracking import topicTracking
 
 # RUN
-st.set_page_config(page_title='TDT', layout="wide")
+st.set_page_config(page_title='Topic Detection', layout="wide")
 
 menu_id = navbar()
 
@@ -25,8 +25,6 @@ elif menu_id == 'Text Preprocessing':
 elif menu_id == 'Topic Detection':
     topicDetection()
 
-elif menu_id == 'Topic Tracking':
-    topicTracking()
 
 
  
