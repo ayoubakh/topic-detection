@@ -7,6 +7,7 @@
 # pip install openpyxl
 # pip install plotly
 # pip install wordcloud
+# pip install pyLDAvis
 
 #hydralit_components==1.0.6
 #plotly==5.4.0
