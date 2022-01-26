@@ -5,7 +5,7 @@
 # pip install nltk 
 # pip install hydralit_components
 # pip install openpyxl
-# pip install ploty
+# pip install plotly
 # pip install wordcloud
 
 #hydralit_components==1.0.6
