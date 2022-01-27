@@ -1,5 +1,3 @@
-from tracemalloc import start
-from matplotlib.pyplot import step
 import streamlit as st
 import pandas as pd
 from TopicDetection.sidebar import sidebar
@@ -27,12 +25,10 @@ def topicDetection():
         if submitted:
             with st.spinner("Training LDA model in progress ... "):
                     id2word, corpus, lda_model = train_lda(tweets,parametres)
-        
-
+    
             # LDA Results
             topics = lda_model.show_topics(formatted=False, num_words=50,num_topics=parametres['num_topics'], log=False)
             get_lda_results(topics)
-            
             
             # LDA Evaluation
             with st.spinner('Calculating coherence metric'):
