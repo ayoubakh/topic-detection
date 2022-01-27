@@ -1,8 +1,11 @@
+from tracemalloc import start
+from matplotlib.pyplot import step
 import streamlit as st
 import pandas as pd
 from TopicDetection.sidebar import sidebar
 from TopicDetection.lda_params import *
 from TopicDetection.train_lda import *
+from TopicDetection.iterative_methode import *
 
 
 def topicDetection():
@@ -41,7 +44,18 @@ def topicDetection():
                     st.write(coherence)
 
 
-        #st.subheader('Generate Pyldavis')
+
+       
+
+    
+        
+
+
+
+
+
+
+    #st.subheader('Generate Pyldavis')
 
 
 
