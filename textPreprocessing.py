@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import re
 import nltk
+nltk.download('averaged_perceptron_tagger')
 nltk.download('wordnet')
 nltk.download('punkt')
 nltk.download('stopwords')
