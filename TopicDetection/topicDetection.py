@@ -4,9 +4,9 @@ import streamlit as st
 import pandas as pd
 from TopicDetection.sidebar import sidebar
 from TopicDetection.lda_params import *
+from TopicDetection.topic_visualization import topic_visualization
 from TopicDetection.train_lda import *
-from TopicDetection.iterative_methode import *
-
+from streamlit import components
 
 def topicDetection():
     # Sidebar
@@ -43,20 +43,12 @@ def topicDetection():
                     st.write('Coherence')
                     st.write(coherence)
 
-
-
-       
-
-    
-        
-
-
-
-
-
-
-    #st.subheader('Generate Pyldavis')
-
+            # Pyldavis 
+            with st.spinner('Preparing visualization'):
+                #st.subheader('Topics visualization')
+                with st.expander('Topics visualization'):
+                    html = topic_visualization(lda_model, corpus, id2word)
+                    components.v1.html(html, width=1300, height=800)
 
 
     
