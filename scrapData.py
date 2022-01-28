@@ -21,7 +21,7 @@ def scrapFromTwitter(options_ticker, limit, since, until):
     
 
 def scrapData() :
-    list_search = ['CNN', 'FoxNews', 'BBCWorld']
+    list_search = ['CNN', 'FoxNews', 'BBCWorld', 'BNCNews', 'AJEnglish', 'RT_America']
     options_ticker = list()
    
     with st.form('Scraping section'):
@@ -51,6 +51,6 @@ def scrapData() :
         dt = str(datetime.today()).replace('-', '.')
         dt = dt.replace(":", ".")
         dt = dt.replace(" ", "_")
-        filename = f'{dt}_{"_".join(list_search)}.csv'
+        filename = f'{dt}_{"_".join(options_ticker)}.csv'
         
         st.download_button("Download csv", csv, filename, "text/csv",key='download-csv')
