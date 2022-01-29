@@ -6,7 +6,6 @@ from home import home
 from scrapData import scrapData
 from textPreprocessing import textPreprocessing
 from TopicDetection.topicDetection import topicDetection
-from topicTracking import topicTracking
 
 # RUN
 st.set_page_config(page_title='Topic Detection', layout="wide")
