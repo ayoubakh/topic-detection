@@ -1,6 +1,6 @@
 # topic-detection
 
-A system that allows you to scrape tweets from Twitter and detect the topics appearing in a given period.
+A system that allows you to scrape data from Twitter and detect the topics appearing in a given period.
 
 ### Fonctionnalities:
 
