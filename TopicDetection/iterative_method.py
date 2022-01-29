@@ -9,7 +9,7 @@ def get_iterative_lda_params():
 	col1, col2, col3 = st.columns(3)
 	with col1:
 		min_num_topics = st.number_input('Minimum number of topics', min_value=3, max_value=100, value=3, key="min-num-topic",
-			help="The number of requested latent topics to be extracted from the training corpus")
+			help="The minimum number of requested latent topics to be extracted from the training corpus")
 
 		chunksize = st.number_input('chunksize', min_value=100, max_value=1000, value=100, key="chunk",
 			help="Number of documents to be used in each training chunk")
@@ -19,7 +19,7 @@ def get_iterative_lda_params():
 
 	with col2:
 		max_num_topics = st.number_input('Max number of topics', min_value=4, max_value=100, value=10, key="max-num-topic",
-			help="The number of requested latent topics to be extracted from the training corpus")
+			help="The maximum number of requested latent topics to be extracted from the training corpus")
 		passes = st.number_input('Passes', min_value=1, max_value=1000, value=1, key="passes",
 			help="Number of passes through the corpus during training.")
 		iterations = st.number_input('Iterations', min_value=1, max_value=1000, value=50, key="iteration",
@@ -27,7 +27,7 @@ def get_iterative_lda_params():
 
 	with col3:
 		step = st.number_input('topics skips', min_value=1, max_value=100, value=2, key="step",
-			help="The number of requested latent topics to be extracted from the training corpus")
+			help="The number of latent topics to skip")
 		alpha = st.selectbox('Alpha', ('symmetric', 'asymmetric', 'auto'), key="alpha",
 			help="A-priori belief on document-topic distribution")
 
