@@ -6,4 +6,4 @@ A system that allows you to scrape tweets from Twitter and detect the topics app
 
 - Scraping Twitter data from news channels like CNN, FoxNews, BBC, ...
 - Tweets preporocessing
-- Topic detection using Latent Dirichlet Allocation
+- Topic detection using Latent Dirichlet Allocation (LDA)
