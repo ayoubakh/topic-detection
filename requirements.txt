@@ -14,6 +14,7 @@ astor==0.8.1
 backcall==0.2.0
 bs4==0.0.1
 cffi==1.15.0
-
-
+argon2-cffi==21.3.0
+argon2-cffi-bindings==21.2.0
+terminado==0.12.1
 
