@@ -10,4 +10,10 @@ hydralit_components==1.0.6
 wordcloud==1.8.1
 pyLDAvis== 3.3.1
 gensim==4.1.2
+astor==0.8.1
+backcall==0.2.0
+bs4==0.0.1
+cffi==1.15.0
+
+
 
