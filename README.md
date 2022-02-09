@@ -2,8 +2,8 @@
 
 A system that allows you to scrape data from Twitter and detect the topics appearing in a given period.
 
-### Fonctionnalities:
+### Functionalities::
 
 - Scraping Twitter data from news channels like CNN, FoxNews, BBC, ...
-- Tweets preporocessing
+- Tweets preprocessing
 - Topic detection using Latent Dirichlet Allocation (LDA)
