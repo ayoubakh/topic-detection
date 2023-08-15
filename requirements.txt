@@ -2,7 +2,7 @@ gensim
 hydralit_components
 matplotlib
 nltk
-nump
+numpy
 pandas
 pyLDAvis
 snscrape
